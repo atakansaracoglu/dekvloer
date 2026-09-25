@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Zandcement Dekvloeren | Dekvloer Expert",
+  title: "Zandcement Dekvloeren | Zandcement Expert",
   description: "Specialist in zandcement dekvloeren door heel Nederland. Sneldroog opties, verharders, vezelversterking en meer.",
 };
 

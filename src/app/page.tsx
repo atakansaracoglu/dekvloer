@@ -30,46 +30,25 @@ const USPS = [
 
 const SERVICES = [
   {
-    title: "Zandcement Dekvloeren",
+    title: "Nieuwbouw",
     href: "/zandcement",
-    desc: "De perfecte basis voor elk project. Strak, duurzaam en kaarsrecht — geschikt voor elke eindafwerking.",
+    desc: "De perfecte basis voor elk nieuwbouwproject. Strak, duurzaam en kaarsrecht — geschikt voor elke eindafwerking.",
     icon: "◆",
     images: ["/photos/werk-01.jpg", "/photos/werk-02.jpg", "/photos/werk-04.jpg"],
   },
   {
-    title: "Anhydrietvloeren",
-    href: "/anhydrietvloeren",
-    desc: "Zelfnivellerend en ideaal in combinatie met vloerverwarming. Kaarsrecht resultaat zonder extra egalisatie.",
+    title: "Renovatie",
+    href: "/zandcement",
+    desc: "Bestaande vloer vervangen of opnieuw opbouwen? Onze zandcement dekvloeren zijn ideaal voor elke renovatie.",
     icon: "◇",
     images: ["/photos/werk-10.jpg", "/photos/werk-11.jpg", "/photos/werk-12.jpg"],
   },
   {
-    title: "Vloerverwarming",
-    href: "/vloerverwarming",
-    desc: "Compleet pakket van isolatie tot dekvloer. Bespaar op energie en geniet van optimaal comfort.",
-    icon: "◈",
-    images: ["/photos/werk-14.jpg", "/photos/werk-15.jpg", "/photos/werk-09.jpg"],
-  },
-  {
-    title: "Egaliseren",
-    href: "/egaliseren",
-    desc: "Spiegelgladde ondergrond voor PVC, tegels of gietvloeren. Professioneel en snel geleverd.",
-    icon: "▣",
-    images: ["/photos/werk-16.jpg", "/photos/werk-17.jpg", "/photos/werk-18.jpg"],
-  },
-  {
-    title: "Beton & Fundering",
-    href: "/beton",
-    desc: "Van strookfundering tot gewapende betonvloeren. Vakkundig gestort volgens constructietekeningen.",
+    title: "Utiliteitsbouw",
+    href: "/zandcement",
+    desc: "Kantoren, winkels en bedrijfshallen — vakkundig gestort met de juiste sterkteklasse en vlakheid.",
     icon: "▦",
     images: ["/photos/werk-19.jpg", "/photos/werk-20.jpg", "/photos/werk-21.jpg"],
-  },
-  {
-    title: "Schuimbeton",
-    href: "/schuimbeton",
-    desc: "Lichtgewicht ophoging en isolatie. Ideaal voor vloerrenovatie en het creëren van afschot.",
-    icon: "▧",
-    images: ["/photos/werk-13.jpg", "/photos/werk-04.jpg", "/photos/werk-15.jpg"],
   },
 ];
 
@@ -124,7 +103,7 @@ function Hero() {
             style={{ background: "rgba(220,38,38,0.15)", color: "#f87171", border: "1px solid rgba(220,38,38,0.25)" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            Specialist in zandcement dekvloeren
+            Uw specialist in zandcement dekvloeren
           </motion.div>
 
           <motion.h1 className="text-white font-semibold leading-[1.05] tracking-tight" style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", letterSpacing: "-0.025em" }}>
@@ -218,7 +197,7 @@ function Services() {
   return (
     <section className="py-24 md:py-32 px-5">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading eyebrow="Onze Diensten" title="Compleet pakket voor elke vloer" subtitle="Van zandcement dekvloeren tot beton en fundering — wij leveren kwaliteit op elke bouwplaats." />
+        <SectionHeading eyebrow="Toepassingen" title="Zandcement voor elk project" subtitle="Van nieuwbouw tot renovatie en utiliteitsbouw — wij leveren de perfecte zandcement dekvloer." />
         <div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           onMouseLeave={() => setHoveredIndex(null)}
@@ -241,7 +220,7 @@ function Services() {
                     <ServiceCardGallery images={service.images} offset={i} />
                   </div>
                   <div className="px-8 pb-8">
-                    {i === 0 && <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ background: "#dc2626", color: "#fff" }}>Hoofddienst</span>}
+                    {i === 0 && <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ background: "#dc2626", color: "#fff" }}>Populair</span>}
                     <h3 className="text-xl font-semibold mb-3 transition-colors duration-300" style={{ color: isDark ? "#fff" : "#0a0a0a" }}>{service.title}</h3>
                     <p className="text-sm leading-relaxed transition-colors duration-300" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#6b7280" }}>{service.desc}</p>
                     <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all" style={{ color: isDark ? "#f87171" : "#dc2626" }}>
@@ -277,7 +256,7 @@ function CraftHero() {
               className="inline-block text-sm font-semibold uppercase tracking-widest mb-6"
               style={{ color: "#dc2626" }}
             >
-              Waarom Dekvloer?
+              Waarom Zandcement Expert?
             </span>
             <h2
               className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-6"

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import HeroGallery from "@/components/HeroGallery";
 import Link from "next/link";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
@@ -17,23 +18,37 @@ const fadeUp = {
 };
 
 const PROJECTS = [
-  { title: "Nieuwbouw Appartementen", location: "Amsterdam", area: "1.200 m²", type: "Zandcement" },
-  { title: "Renovatie Woonhuis", location: "Rotterdam", area: "180 m²", type: "Zandcement + Vloerverwarming" },
-  { title: "Bedrijfshal Fundering", location: "Utrecht", area: "3.500 m²", type: "Beton & Fundering" },
-  { title: "Vloerverwarming Project", location: "Den Haag", area: "420 m²", type: "Vloerverwarming" },
-  { title: "Kantoorpand Egalisatie", location: "Eindhoven", area: "800 m²", type: "Egaliseren" },
-  { title: "Villa Nieuwbouw", location: "Haarlem", area: "350 m²", type: "Zandcement + Anhydriet" },
-  { title: "Schoolgebouw Renovatie", location: "Groningen", area: "2.100 m²", type: "Schuimbeton + Zandcement" },
-  { title: "Woonwijk Nieuwbouw", location: "Almere", area: "4.800 m²", type: "Heipalen + Beton" },
+  { title: "Nieuwbouw Appartementen", location: "Amsterdam", area: "1.200 m²", type: "Zandcement", image: "/photos/werk-01.jpg" },
+  { title: "Renovatie Woonhuis", location: "Rotterdam", area: "180 m²", type: "Zandcement", image: "/photos/werk-10.jpg" },
+  { title: "Bedrijfshal Vloer", location: "Utrecht", area: "3.500 m²", type: "Zandcement", image: "/photos/werk-19.jpg" },
+  { title: "Villa Nieuwbouw", location: "Haarlem", area: "350 m²", type: "Zandcement", image: "/photos/werk-04.jpg" },
+  { title: "Schoolgebouw Renovatie", location: "Groningen", area: "2.100 m²", type: "Zandcement", image: "/photos/werk-14.jpg" },
+  { title: "Woonwijk Nieuwbouw", location: "Almere", area: "4.800 m²", type: "Zandcement", image: "/photos/werk-20.jpg" },
 ];
+
+const HERO_IMAGES = ["/photos/werk-15.jpg", "/photos/werk-09.jpg", "/photos/werk-17.jpg"];
 
 export default function ProjectenPage() {
   return (
     <>
       <Header forceDark />
       <main>
-        <section className="pt-28 pb-16 md:pt-36 md:pb-24 px-5" style={{ background: "#111111" }}>
-          <div className="max-w-4xl mx-auto">
+        <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-5 overflow-hidden" style={{ background: "#111111" }}>
+          <HeroGallery images={HERO_IMAGES} />
+          <div className="relative max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...spring, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-sm font-medium"
+              style={{
+                background: "rgba(220,38,38,0.15)",
+                color: "#f87171",
+                border: "1px solid rgba(220,38,38,0.25)",
+              }}
+            >
+              Zandcement Expert
+            </motion.div>
             <motion.h1
               className="text-white font-semibold leading-[1.08] tracking-tight"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}
@@ -61,7 +76,7 @@ export default function ProjectenPage() {
               <motion.div
                 key={project.title}
                 className="group relative rounded-2xl overflow-hidden cursor-default"
-                style={{ background: "#111111", aspectRatio: "4/3" }}
+                style={{ aspectRatio: "4/3" }}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
@@ -69,15 +84,15 @@ export default function ProjectenPage() {
                 custom={i}
                 whileHover={{ y: -4, transition: spring }}
               >
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: `linear-gradient(135deg, hsl(${210 + i * 12}, 20%, ${18 + i * 3}%) 0%, hsl(${220 + i * 12}, 15%, ${28 + i * 3}%) 100%)`,
-                  }}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)" }} />
                 <div className="absolute top-4 left-4">
-                  <span className="text-xs font-medium px-3 py-1 rounded-full" style={{ background: "rgba(220,38,38,0.2)", color: "#f87171" }}>
+                  <span className="text-xs font-medium px-3 py-1 rounded-full" style={{ background: "rgba(220,38,38,0.2)", color: "#f87171", backdropFilter: "blur(8px)" }}>
                     {project.type}
                   </span>
                 </div>
