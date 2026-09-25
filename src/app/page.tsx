@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoShowcase from "@/components/PhotoShowcase";
-import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
+
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
@@ -34,7 +34,6 @@ const SERVICES = [
     href: "/zandcement",
     desc: "De perfecte basis voor elk project. Strak, duurzaam en kaarsrecht — geschikt voor elke eindafwerking.",
     icon: "◆",
-    primary: true,
     images: ["/photos/werk-01.jpg", "/photos/werk-02.jpg", "/photos/werk-04.jpg"],
   },
   {
@@ -214,76 +213,52 @@ function ServiceCardGallery({ images, offset = 0 }: { images: string[]; offset?:
 }
 
 function Services() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="py-24 md:py-32 px-5">
       <div className="max-w-7xl mx-auto">
         <SectionHeading eyebrow="Onze Diensten" title="Compleet pakket voor elke vloer" subtitle="Van zandcement dekvloeren tot beton en fundering — wij leveren kwaliteit op elke bouwplaats." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service, i) => (
-            <motion.div key={service.title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-30px" }} custom={i} whileHover={{ y: -4, transition: spring }}>
-              <Link href={service.href} className="group block relative rounded-2xl overflow-hidden transition-all duration-300 h-full" style={{ background: service.primary ? "#111111" : "#ffffff", border: service.primary ? "none" : "1px solid rgba(0,0,0,0.06)" }}>
-                <div className="px-8 pt-6">
-                  <ServiceCardGallery images={service.images} offset={i} />
-                </div>
-                <div className="px-8 pb-8">
-                  {service.primary && <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ background: "#dc2626", color: "#fff" }}>Hoofddienst</span>}
-                  <h3 className="text-xl font-semibold mb-3" style={{ color: service.primary ? "#fff" : "#0a0a0a" }}>{service.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: service.primary ? "rgba(255,255,255,0.6)" : "#6b7280" }}>{service.desc}</p>
-                  <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all" style={{ color: service.primary ? "#f87171" : "#dc2626" }}>
-                    Meer info
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+        <div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          {SERVICES.map((service, i) => {
+            const isDark = hoveredIndex === null ? i === 0 : hoveredIndex === i;
+            return (
+              <motion.div
+                key={service.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+                custom={i}
+                whileHover={{ y: -4, transition: spring }}
+                onMouseEnter={() => setHoveredIndex(i)}
+              >
+                <Link href={service.href} className="group block relative rounded-2xl overflow-hidden h-full transition-colors duration-300" style={{ background: isDark ? "#111111" : "#ffffff", border: isDark ? "1px solid transparent" : "1px solid rgba(0,0,0,0.06)" }}>
+                  <div className="px-8 pt-6">
+                    <ServiceCardGallery images={service.images} offset={i} />
+                  </div>
+                  <div className="px-8 pb-8">
+                    {i === 0 && <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ background: "#dc2626", color: "#fff" }}>Hoofddienst</span>}
+                    <h3 className="text-xl font-semibold mb-3 transition-colors duration-300" style={{ color: isDark ? "#fff" : "#0a0a0a" }}>{service.title}</h3>
+                    <p className="text-sm leading-relaxed transition-colors duration-300" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#6b7280" }}>{service.desc}</p>
+                    <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all" style={{ color: isDark ? "#f87171" : "#dc2626" }}>
+                      Meer info
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-const PROJECT_PHOTOS = [
-  "/photos/werk-01.jpg",
-  "/photos/werk-02.jpg",
-  "/photos/werk-04.jpg",
-  "/photos/werk-09.jpg",
-  "/photos/werk-10.jpg",
-  "/photos/werk-11.jpg",
-  "/photos/werk-12.jpg",
-  "/photos/werk-13.jpg",
-  "/photos/werk-14.jpg",
-  "/photos/werk-15.jpg",
-  "/photos/werk-16.jpg",
-  "/photos/werk-17.jpg",
-  "/photos/werk-18.jpg",
-  "/photos/werk-19.jpg",
-  "/photos/werk-20.jpg",
-  "/photos/werk-21.jpg",
-];
-
-function ProjectShowcase() {
-  return (
-    <section className="py-24 md:py-32 px-5">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeading
-          eyebrow="Ons Werk"
-          title="Honderden projecten, één standaard: perfectie"
-          subtitle="Met een professioneel team en jarenlange ervaring hebben wij duizenden vierkante meters dekvloer gestort door heel Nederland. Bekijk een greep uit onze gerealiseerde projecten."
-        />
-        <div className="w-full h-[700px] md:h-[800px] rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.06)" }}>
-          <ScrollMorphHero
-            images={PROJECT_PHOTOS}
-            heading="Vakmanschap in Elk Project"
-            subheading="Van nieuwbouw tot renovatie — ons professioneel team levert op elke bouwplaats hetzelfde hoge niveau. Meer dan 2500 projecten succesvol opgeleverd door heel Nederland."
-            introText="Ons werk spreekt voor zich."
-            introSubtext="SCROLL OM TE ONTDEKKEN"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function CraftHero() {
   return (
@@ -523,7 +498,6 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <ProjectShowcase />
         <PhotoShowcase />
         <CraftHero />
         <ExtraOptions />
