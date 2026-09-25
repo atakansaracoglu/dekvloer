@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoShowcase from "@/components/PhotoShowcase";
+import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
@@ -206,6 +207,48 @@ function Services() {
   );
 }
 
+const PROJECT_PHOTOS = [
+  "/photos/werk-01.jpg",
+  "/photos/werk-02.jpg",
+  "/photos/werk-04.jpg",
+  "/photos/werk-09.jpg",
+  "/photos/werk-10.jpg",
+  "/photos/werk-11.jpg",
+  "/photos/werk-12.jpg",
+  "/photos/werk-13.jpg",
+  "/photos/werk-14.jpg",
+  "/photos/werk-15.jpg",
+  "/photos/werk-16.jpg",
+  "/photos/werk-17.jpg",
+  "/photos/werk-18.jpg",
+  "/photos/werk-19.jpg",
+  "/photos/werk-20.jpg",
+  "/photos/werk-21.jpg",
+];
+
+function ProjectShowcase() {
+  return (
+    <section className="py-24 md:py-32 px-5">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeading
+          eyebrow="Ons Werk"
+          title="Honderden projecten, één standaard: perfectie"
+          subtitle="Met een professioneel team en jarenlange ervaring hebben wij duizenden vierkante meters dekvloer gestort door heel Nederland. Bekijk een greep uit onze gerealiseerde projecten."
+        />
+        <div className="w-full h-[700px] md:h-[800px] rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.06)" }}>
+          <ScrollMorphHero
+            images={PROJECT_PHOTOS}
+            heading="Vakmanschap in Elk Project"
+            subheading="Van nieuwbouw tot renovatie — ons professioneel team levert op elke bouwplaats hetzelfde hoge niveau. Meer dan 2500 projecten succesvol opgeleverd door heel Nederland."
+            introText="Ons werk spreekt voor zich."
+            introSubtext="SCROLL OM TE ONTDEKKEN"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ExtraOptions() {
   return (
     <section className="py-24 md:py-32 px-5" style={{ background: "#111111" }}>
@@ -290,6 +333,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <ProjectShowcase />
         <PhotoShowcase />
         <ExtraOptions />
         <Process />
