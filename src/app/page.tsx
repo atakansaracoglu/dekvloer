@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -35,36 +35,42 @@ const SERVICES = [
     desc: "De perfecte basis voor elk project. Strak, duurzaam en kaarsrecht — geschikt voor elke eindafwerking.",
     icon: "◆",
     primary: true,
+    images: ["/photos/werk-01.jpg", "/photos/werk-02.jpg", "/photos/werk-04.jpg"],
   },
   {
     title: "Anhydrietvloeren",
     href: "/anhydrietvloeren",
     desc: "Zelfnivellerend en ideaal in combinatie met vloerverwarming. Kaarsrecht resultaat zonder extra egalisatie.",
     icon: "◇",
+    images: ["/photos/werk-10.jpg", "/photos/werk-11.jpg", "/photos/werk-12.jpg"],
   },
   {
     title: "Vloerverwarming",
     href: "/vloerverwarming",
     desc: "Compleet pakket van isolatie tot dekvloer. Bespaar op energie en geniet van optimaal comfort.",
     icon: "◈",
+    images: ["/photos/werk-14.jpg", "/photos/werk-15.jpg", "/photos/werk-09.jpg"],
   },
   {
     title: "Egaliseren",
     href: "/egaliseren",
     desc: "Spiegelgladde ondergrond voor PVC, tegels of gietvloeren. Professioneel en snel geleverd.",
     icon: "▣",
+    images: ["/photos/werk-16.jpg", "/photos/werk-17.jpg", "/photos/werk-18.jpg"],
   },
   {
     title: "Beton & Fundering",
     href: "/beton",
     desc: "Van strookfundering tot gewapende betonvloeren. Vakkundig gestort volgens constructietekeningen.",
     icon: "▦",
+    images: ["/photos/werk-19.jpg", "/photos/werk-20.jpg", "/photos/werk-21.jpg"],
   },
   {
     title: "Schuimbeton",
     href: "/schuimbeton",
     desc: "Lichtgewicht ophoging en isolatie. Ideaal voor vloerrenovatie en het creëren van afschot.",
     icon: "▧",
+    images: ["/photos/werk-13.jpg", "/photos/werk-04.jpg", "/photos/werk-15.jpg"],
   },
 ];
 
@@ -181,6 +187,32 @@ function SectionHeading({ eyebrow, title, subtitle }: { eyebrow: string; title: 
   );
 }
 
+function ServiceCardGallery({ images, offset = 0 }: { images: string[]; offset?: number }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % images.length), 5000 + offset * 800);
+    return () => clearInterval(t);
+  }, [images.length, offset]);
+
+  return (
+    <div className="relative w-full h-40 rounded-xl overflow-hidden mb-5">
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={images[idx]}
+          src={images[idx]}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ opacity: 0, scale: 1.0 }}
+          animate={{ opacity: 1, scale: 1.15 }}
+          exit={{ opacity: 0 }}
+          transition={{ opacity: { duration: 1.2, ease: "easeInOut" }, scale: { duration: 6, ease: "linear" } }}
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+    </div>
+  );
+}
+
 function Services() {
   return (
     <section className="py-24 md:py-32 px-5">
@@ -189,15 +221,19 @@ function Services() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((service, i) => (
             <motion.div key={service.title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-30px" }} custom={i} whileHover={{ y: -4, transition: spring }}>
-              <Link href={service.href} className="group block relative rounded-2xl p-8 transition-all duration-300 h-full" style={{ background: service.primary ? "#111111" : "#ffffff", border: service.primary ? "none" : "1px solid rgba(0,0,0,0.06)" }}>
-                {service.primary && <span className="absolute top-4 right-4 text-xs font-semibold px-3 py-1 rounded-full" style={{ background: "#dc2626", color: "#fff" }}>Hoofddienst</span>}
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-6" style={{ background: service.primary ? "rgba(220,38,38,0.2)" : "rgba(17,17,17,0.05)", color: service.primary ? "#f87171" : "#111111" }}>{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3" style={{ color: service.primary ? "#fff" : "#0a0a0a" }}>{service.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: service.primary ? "rgba(255,255,255,0.6)" : "#6b7280" }}>{service.desc}</p>
-                <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all" style={{ color: service.primary ? "#f87171" : "#dc2626" }}>
-                  Meer info
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </span>
+              <Link href={service.href} className="group block relative rounded-2xl overflow-hidden transition-all duration-300 h-full" style={{ background: service.primary ? "#111111" : "#ffffff", border: service.primary ? "none" : "1px solid rgba(0,0,0,0.06)" }}>
+                <div className="px-8 pt-6">
+                  <ServiceCardGallery images={service.images} offset={i} />
+                </div>
+                <div className="px-8 pb-8">
+                  {service.primary && <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ background: "#dc2626", color: "#fff" }}>Hoofddienst</span>}
+                  <h3 className="text-xl font-semibold mb-3" style={{ color: service.primary ? "#fff" : "#0a0a0a" }}>{service.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: service.primary ? "rgba(255,255,255,0.6)" : "#6b7280" }}>{service.desc}</p>
+                  <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all" style={{ color: service.primary ? "#f87171" : "#dc2626" }}>
+                    Meer info
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
+                </div>
               </Link>
             </motion.div>
           ))}
