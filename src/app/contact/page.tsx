@@ -5,6 +5,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import HeroGallery from "@/components/HeroGallery";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
@@ -22,8 +23,22 @@ export default function ContactPage() {
     <>
       <Header forceDark />
       <main>
-        <section className="pt-28 pb-16 md:pt-36 md:pb-24 px-5" style={{ background: "#111111" }}>
-          <div className="max-w-4xl mx-auto">
+        <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-5 overflow-hidden" style={{ background: "#111111" }}>
+          <HeroGallery images={["/photos/werk-16.jpg", "/photos/werk-18.jpg", "/photos/werk-11.jpg"]} />
+          <div className="relative max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...spring, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-sm font-medium"
+              style={{
+                background: "rgba(220,38,38,0.15)",
+                color: "#f87171",
+                border: "1px solid rgba(220,38,38,0.25)",
+              }}
+            >
+              Zandcement Expert
+            </motion.div>
             <motion.h1
               className="text-white font-semibold leading-[1.08] tracking-tight"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.025em" }}

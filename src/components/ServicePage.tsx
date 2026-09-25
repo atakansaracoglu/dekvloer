@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import HeroGallery from "./HeroGallery";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
@@ -32,32 +32,6 @@ interface ServicePageProps {
   ctaText?: string;
   ctaSubtext?: string;
   heroImages?: string[];
-}
-
-function HeroGallery({ images }: { images: string[] }) {
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % images.length), 7000);
-    return () => clearInterval(t);
-  }, [images.length]);
-
-  return (
-    <div className="absolute inset-0">
-      <AnimatePresence mode="popLayout">
-        <motion.img
-          key={images[idx]}
-          src={images[idx]}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.0 }}
-          animate={{ opacity: 1, scale: 1.25 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1.5, ease: "easeInOut" }, scale: { duration: 8, ease: "linear" } }}
-        />
-      </AnimatePresence>
-      <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.72)" }} />
-    </div>
-  );
 }
 
 export default function ServicePage({
@@ -89,7 +63,7 @@ export default function ServicePage({
                 border: "1px solid rgba(220,38,38,0.25)",
               }}
             >
-              Dekvloer Expert
+              Zandcement Expert
             </motion.div>
             <motion.h1
               className="text-white font-semibold leading-[1.08] tracking-tight"
