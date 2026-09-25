@@ -249,6 +249,160 @@ function ProjectShowcase() {
   );
 }
 
+function CraftHero() {
+  return (
+    <section className="py-24 md:py-32 px-5 overflow-hidden" style={{ background: "#fafafa" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <motion.div
+            className="order-2 md:order-1"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            custom={0}
+          >
+            <span
+              className="inline-block text-sm font-semibold uppercase tracking-widest mb-6"
+              style={{ color: "#dc2626" }}
+            >
+              Waarom Dekvloer?
+            </span>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-6"
+              style={{ color: "#0a0a0a", letterSpacing: "-0.02em" }}
+            >
+              Wij stoppen niet bij{" "}
+              <span style={{ color: "#dc2626" }}>&lsquo;goed genoeg&rsquo;</span>
+            </h2>
+            <p className="text-lg leading-relaxed mb-8" style={{ color: "#6b7280" }}>
+              Elke vloer die wij storten is een handtekening. Geen haastwerk, geen
+              compromissen — alleen millimeterprecisie, dag in dag uit. Waar anderen
+              stoppen bij de norm, beginnen wij pas. Dat is geen slogan, dat is hoe
+              ons team elke ochtend de bouwplaats op stapt.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-10">
+              <div className="flex items-start gap-3">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(220,38,38,0.1)" }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Laag voor laag</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Opgebouwd met precisie en vakmanschap</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(220,38,38,0.1)" }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Altijd op tijd</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Planning is een belofte, geen schatting</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(220,38,38,0.1)" }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Nul-fouten mentaliteit</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Controleren, meten, dan pas storten</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(220,38,38,0.1)" }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Vast team</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Dezelfde vakmensen, elk project</p>
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/over-ons"
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
+              style={{ color: "#dc2626" }}
+            >
+              Meer over ons team
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            className="order-1 md:order-2 relative"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            custom={2}
+          >
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/photos/werk-21.jpg"
+                alt="Dekvloer vakmanschap"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%)" }} />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: "#dc2626" }}>
+                    <span className="text-white font-bold text-lg">15+</span>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Jaar ervaring</p>
+                    <p className="text-white/60 text-xs">in de vloerbranche</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="absolute -bottom-4 -left-4 w-32 h-32 rounded-2xl -z-10"
+              style={{ background: "rgba(220,38,38,0.08)" }}
+            />
+            <div
+              className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl -z-10"
+              style={{ background: "rgba(220,38,38,0.05)" }}
+            />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ExtraOptions() {
   return (
     <section className="py-24 md:py-32 px-5" style={{ background: "#111111" }}>
@@ -334,6 +488,7 @@ export default function Home() {
         <Hero />
         <Services />
         <ProjectShowcase />
+        <CraftHero />
         <PhotoShowcase />
         <ExtraOptions />
         <Process />
