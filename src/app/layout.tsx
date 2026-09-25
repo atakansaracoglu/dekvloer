@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dekvloer Expert | Specialist in Zandcement Dekvloeren",
+  title: "Zandcement Expert | Specialist in Zandcement Dekvloeren",
   description:
     "Uw specialist in zandcement dekvloeren door heel Nederland. Sneldroog opties, verharders, vezelversterking en meer. Vraag direct een vrijblijvende offerte aan.",
   icons: {

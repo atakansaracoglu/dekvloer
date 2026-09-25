@@ -9,13 +9,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
 const SERVICES = [
-  "Zandcement dekvloer",
-  "Anhydrietvloer",
-  "Vloerverwarming",
-  "Egaliseren",
-  "Beton & Fundering",
-  "Schuimbeton",
-  "Heipalen",
+  "Zandcement dekvloer — Nieuwbouw",
+  "Zandcement dekvloer — Renovatie",
+  "Zandcement dekvloer — Utiliteitsbouw",
   "Anders",
 ];
 

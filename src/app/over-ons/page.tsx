@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Over Ons | Dekvloer Expert",
-  description: "Leer meer over Dekvloer Expert. Specialist in zandcement dekvloeren door heel Nederland.",
+  title: "Over Ons | Zandcement Expert",
+  description: "Leer meer over Zandcement Expert. Specialist in zandcement dekvloeren door heel Nederland.",
 };
 
 export default function OverOnsPage() {
@@ -11,7 +11,7 @@ export default function OverOnsPage() {
     <ServicePage
       title="Over Ons"
       subtitle="Uw specialist in zandcement dekvloeren door heel Nederland."
-      intro={`Bij Dekvloer Expert draait alles om vakmanschap, betrouwbaarheid en kwaliteit. Met jarenlange ervaring in de vloerensector zijn wij uitgegroeid tot een specialist waar aannemers en particulieren in heel Nederland op vertrouwen.
+      intro={`Bij Zandcement Expert draait alles om vakmanschap, betrouwbaarheid en kwaliteit. Met jarenlange ervaring in de vloerensector zijn wij uitgegroeid tot een specialist waar aannemers en particulieren in heel Nederland op vertrouwen.
 
 Onze kernwaarden zijn eenvoudig: wij leveren topkwaliteit, komen afspraken na en communiceren helder. Of het nu gaat om een kleine renovatie of een grootschalig nieuwbouwproject — wij behandelen elk project met dezelfde toewijding en professionaliteit.
 

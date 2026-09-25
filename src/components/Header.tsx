@@ -3,32 +3,22 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
 const NAV_PRIMARY = [
   { label: "Zandcement", href: "/zandcement" },
-  { label: "Anhydriet", href: "/anhydrietvloeren" },
-  { label: "Vloerverwarming", href: "/vloerverwarming" },
-  { label: "Egaliseren", href: "/egaliseren" },
-  { label: "Beton", href: "/beton" },
-];
-
-const NAV_SECONDARY = [
-  { label: "Schuimbeton", href: "/schuimbeton" },
-  { label: "Heipalen", href: "/heipalen" },
   { label: "Projecten", href: "/projecten" },
   { label: "Over Ons", href: "/over-ons" },
+  { label: "Contact", href: "/contact" },
 ];
 
-const ALL_NAV = [{ label: "Home", href: "/" }, ...NAV_PRIMARY, ...NAV_SECONDARY];
+const ALL_NAV = [{ label: "Home", href: "/" }, ...NAV_PRIMARY];
 
 export default function Header({ forceDark = false }: { forceDark?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [moreOpen, setMoreOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -103,7 +93,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo-wide.svg"
-                alt="Dekvloer Expert"
+                alt="Zandcement Expert"
                 className="w-auto transition-all"
                 style={{
                   height: scrolled ? "28px" : "34px",
@@ -118,52 +108,6 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               {NAV_PRIMARY.map((item) => (
                 <NavLink key={item.href} href={item.href} label={item.label} active={isActive(item.href)} />
               ))}
-
-              {/* More dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setMoreOpen(true)}
-                onMouseLeave={() => setMoreOpen(false)}
-              >
-                <button
-                  className="flex items-center gap-1 text-[13px] font-medium px-3 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8"
-                  style={{ color: NAV_SECONDARY.some((i) => isActive(i.href)) ? "#f87171" : "rgba(255,255,255,0.55)" }}
-                >
-                  Meer
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="opacity-50">
-                    <path d="M3 5l3 2.5L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <AnimatePresence>
-                  {moreOpen && (
-                    <motion.div
-                      className="absolute top-full right-0 mt-2 py-1.5 min-w-[160px]"
-                      style={{
-                        background: "rgba(15,15,15,0.85)",
-                        backdropFilter: "blur(24px) saturate(150%)",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        borderRadius: "12px",
-                        boxShadow: "0 12px 40px rgba(0,0,0,0.4)",
-                      }}
-                      initial={{ opacity: 0, y: -4, scale: 0.97 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -4, scale: 0.97 }}
-                      transition={{ duration: 0.15 }}
-                    >
-                      {NAV_SECONDARY.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-2 text-[13px] font-medium transition-colors hover:bg-white/5"
-                          style={{ color: isActive(item.href) ? "#f87171" : "rgba(255,255,255,0.65)" }}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
             </nav>
 
             {/* ── Right: Actions ── */}
@@ -232,7 +176,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               {/* Drawer head */}
               <div className="flex items-center justify-between px-5 h-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logo-wide.svg" alt="Dekvloer Expert" className="h-5 w-auto" />
+                <img src="/logo-wide.svg" alt="Zandcement Expert" className="h-5 w-auto" />
                 <button onClick={() => setMenuOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/8 transition-colors" aria-label="Sluiten">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8m0-8L3 11" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" /></svg>
                 </button>

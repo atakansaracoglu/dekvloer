@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,12 +10,12 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo-icon.svg"
-                alt="Dekvloer Expert"
+                alt="Zandcement Expert"
                 className="h-20 w-auto"
               />
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
-              Specialist in zandcement dekvloeren door heel Nederland.
+              Uw specialist in zandcement dekvloeren door heel Nederland.
             </p>
             <div className="flex gap-3 mt-6">
               <a href="#" aria-label="Facebook" className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110" style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}>
@@ -41,13 +40,7 @@ export default function Footer() {
             <h4 className="font-semibold text-white text-sm mb-4">Diensten</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Zandcement", href: "/zandcement" },
-                { label: "Anhydrietvloeren", href: "/anhydrietvloeren" },
-                { label: "Vloerverwarming", href: "/vloerverwarming" },
-                { label: "Egaliseren", href: "/egaliseren" },
-                { label: "Beton", href: "/beton" },
-                { label: "Schuimbeton", href: "/schuimbeton" },
-                { label: "Heipalen", href: "/heipalen" },
+                { label: "Zandcement Dekvloeren", href: "/zandcement" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -87,7 +80,7 @@ export default function Footer() {
 
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-            © 2026 Dekvloer Expert. Alle rechten voorbehouden.
+            © 2026 Zandcement Expert. Alle rechten voorbehouden.
           </p>
           <div className="flex gap-6">
             {["Privacy", "Voorwaarden", "Cookies"].map((item) => (

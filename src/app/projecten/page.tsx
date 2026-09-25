@@ -18,13 +18,11 @@ const fadeUp = {
 
 const PROJECTS = [
   { title: "Nieuwbouw Appartementen", location: "Amsterdam", area: "1.200 m²", type: "Zandcement" },
-  { title: "Renovatie Woonhuis", location: "Rotterdam", area: "180 m²", type: "Zandcement + Vloerverwarming" },
-  { title: "Bedrijfshal Fundering", location: "Utrecht", area: "3.500 m²", type: "Beton & Fundering" },
-  { title: "Vloerverwarming Project", location: "Den Haag", area: "420 m²", type: "Vloerverwarming" },
-  { title: "Kantoorpand Egalisatie", location: "Eindhoven", area: "800 m²", type: "Egaliseren" },
-  { title: "Villa Nieuwbouw", location: "Haarlem", area: "350 m²", type: "Zandcement + Anhydriet" },
-  { title: "Schoolgebouw Renovatie", location: "Groningen", area: "2.100 m²", type: "Schuimbeton + Zandcement" },
-  { title: "Woonwijk Nieuwbouw", location: "Almere", area: "4.800 m²", type: "Heipalen + Beton" },
+  { title: "Renovatie Woonhuis", location: "Rotterdam", area: "180 m²", type: "Zandcement" },
+  { title: "Bedrijfshal Vloer", location: "Utrecht", area: "3.500 m²", type: "Zandcement" },
+  { title: "Villa Nieuwbouw", location: "Haarlem", area: "350 m²", type: "Zandcement" },
+  { title: "Schoolgebouw Renovatie", location: "Groningen", area: "2.100 m²", type: "Zandcement" },
+  { title: "Woonwijk Nieuwbouw", location: "Almere", area: "4.800 m²", type: "Zandcement" },
 ];
 
 export default function ProjectenPage() {
