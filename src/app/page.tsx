@@ -488,8 +488,8 @@ export default function Home() {
         <Hero />
         <Services />
         <ProjectShowcase />
-        <CraftHero />
         <PhotoShowcase />
+        <CraftHero />
         <ExtraOptions />
         <Process />
         <GoogleReviews />
