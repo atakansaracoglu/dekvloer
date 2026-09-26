@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+:root,
+:root[data-theme="red"] {
   --theme-accent: #dc2626;
   --theme-accent-light: #f87171;
   --theme-accent-rgb: 220, 38, 38;
@@ -10,6 +11,54 @@
   --theme-accent: #2563eb;
   --theme-accent-light: #60a5fa;
   --theme-accent-rgb: 37, 99, 235;
+}
+
+:root[data-theme="emerald"] {
+  --theme-accent: #059669;
+  --theme-accent-light: #34d399;
+  --theme-accent-rgb: 5, 150, 105;
+}
+
+:root[data-theme="purple"] {
+  --theme-accent: #7c3aed;
+  --theme-accent-light: #a78bfa;
+  --theme-accent-rgb: 124, 58, 237;
+}
+
+:root[data-theme="orange"] {
+  --theme-accent: #ea580c;
+  --theme-accent-light: #fb923c;
+  --theme-accent-rgb: 234, 88, 12;
+}
+
+:root[data-theme="pink"] {
+  --theme-accent: #db2777;
+  --theme-accent-light: #f472b6;
+  --theme-accent-rgb: 219, 39, 119;
+}
+
+:root[data-theme="teal"] {
+  --theme-accent: #0d9488;
+  --theme-accent-light: #2dd4bf;
+  --theme-accent-rgb: 13, 148, 136;
+}
+
+:root[data-theme="amber"] {
+  --theme-accent: #d97706;
+  --theme-accent-light: #fbbf24;
+  --theme-accent-rgb: 217, 119, 6;
+}
+
+:root[data-theme="indigo"] {
+  --theme-accent: #4f46e5;
+  --theme-accent-light: #818cf8;
+  --theme-accent-rgb: 79, 70, 229;
+}
+
+:root[data-theme="rose"] {
+  --theme-accent: #e11d48;
+  --theme-accent-light: #fb7185;
+  --theme-accent-rgb: 225, 29, 72;
 }
 
 @theme inline {

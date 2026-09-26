@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("theme-color");if(t==="blue")document.documentElement.setAttribute("data-theme","blue")}catch(e){}`,
+            __html: `try{var t=localStorage.getItem("theme-color");if(t&&["red","blue","emerald","purple","orange","pink","teal","amber","indigo","rose"].indexOf(t)>-1)document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
           }}
         />
       </head>
