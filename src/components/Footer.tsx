@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { LogoIcon } from "./Logo";
 
 export default function Footer() {
   return (
@@ -8,12 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
             <div className="mb-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo-icon.svg"
-                alt="Dekvloer Expert"
-                className="h-20 w-auto"
-              />
+              <LogoIcon className="h-20 w-auto" />
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
               Specialist in zandcement dekvloeren door heel Nederland.
@@ -87,7 +82,7 @@ export default function Footer() {
 
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-            © 2026 Dekvloer Expert. Alle rechten voorbehouden.
+            &copy; 2026 Dekvloer Expert. Alle rechten voorbehouden.
           </p>
           <div className="flex gap-6">
             {["Privacy", "Voorwaarden", "Cookies"].map((item) => (

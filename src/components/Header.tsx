@@ -3,8 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { LogoIcon, LogoWide } from "./Logo";
+import ColorSwitcher from "./ColorSwitcher";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
@@ -45,7 +46,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
 
   return (
     <>
-      {/* ═══ FLOATING GLASS HEADER ═══ */}
+      {/* FLOATING GLASS HEADER */}
       <motion.header
         className="fixed z-50 left-0 right-0"
         style={{ top: scrolled ? "12px" : "24px" }}
@@ -85,7 +86,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)",
             }}
           >
-            {/* ── Left: Logo ── */}
+            {/* Left: Logo */}
             <Link href="/" className="flex-shrink-0 relative flex items-center gap-2">
               <motion.div
                 animate={{
@@ -97,13 +98,9 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                 transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                 className="overflow-hidden flex-shrink-0"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logo-icon.svg" alt="" className="h-6 w-auto" />
+                <LogoIcon className="h-6 w-auto" />
               </motion.div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo-wide.svg"
-                alt="Dekvloer Expert"
+              <LogoWide
                 className="w-auto transition-all"
                 style={{
                   height: scrolled ? "28px" : "34px",
@@ -112,7 +109,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               />
             </Link>
 
-            {/* ── Center: Navigation ── */}
+            {/* Center: Navigation */}
             <nav className="hidden xl:flex items-center gap-0.5">
               <NavLink href="/" label="Home" active={isActive("/")} />
               {NAV_PRIMARY.map((item) => (
@@ -127,7 +124,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               >
                 <button
                   className="flex items-center gap-1 text-[13px] font-medium px-3 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8"
-                  style={{ color: NAV_SECONDARY.some((i) => isActive(i.href)) ? "#f87171" : "rgba(255,255,255,0.55)" }}
+                  style={{ color: NAV_SECONDARY.some((i) => isActive(i.href)) ? "var(--theme-accent-light)" : "rgba(255,255,255,0.55)" }}
                 >
                   Meer
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="opacity-50">
@@ -155,7 +152,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                           key={item.href}
                           href={item.href}
                           className="block px-4 py-2 text-[13px] font-medium transition-colors hover:bg-white/5"
-                          style={{ color: isActive(item.href) ? "#f87171" : "rgba(255,255,255,0.65)" }}
+                          style={{ color: isActive(item.href) ? "var(--theme-accent-light)" : "rgba(255,255,255,0.65)" }}
                         >
                           {item.label}
                         </Link>
@@ -166,8 +163,10 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
               </div>
             </nav>
 
-            {/* ── Right: Actions ── */}
+            {/* Right: Actions */}
             <div className="flex items-center gap-2 flex-shrink-0">
+              <ColorSwitcher />
+
               <a
                 href="tel:+31612345678"
                 className="hidden sm:flex w-8 h-8 items-center justify-center rounded-lg transition-all duration-200 hover:bg-white/8"
@@ -181,10 +180,10 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                 href="/contact"
                 className="hidden sm:inline-flex items-center text-[12px] font-semibold px-4 py-1.5 rounded-lg transition-all duration-200 hover:brightness-110 active:scale-[0.97]"
                 style={{
-                  background: "rgba(220,38,38,0.85)",
+                  background: "rgba(var(--theme-accent-rgb),0.85)",
                   color: "#fff",
                   backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(220,38,38,0.3)",
+                  border: "1px solid rgba(var(--theme-accent-rgb),0.3)",
                 }}
               >
                 Offerte aanvragen
@@ -206,7 +205,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
         </motion.div>
       </motion.header>
 
-      {/* ═══ MOBILE DRAWER ═══ */}
+      {/* MOBILE DRAWER */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -231,8 +230,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
             >
               {/* Drawer head */}
               <div className="flex items-center justify-between px-5 h-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logo-wide.svg" alt="Dekvloer Expert" className="h-5 w-auto" />
+                <LogoWide className="h-5 w-auto" />
                 <button onClick={() => setMenuOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/8 transition-colors" aria-label="Sluiten">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8m0-8L3 11" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" /></svg>
                 </button>
@@ -246,8 +244,8 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                     href={item.href}
                     className="flex items-center px-4 py-3 rounded-lg text-[14px] font-medium transition-colors hover:bg-white/5"
                     style={{
-                      color: isActive(item.href) ? "#f87171" : "rgba(255,255,255,0.7)",
-                      borderLeft: isActive(item.href) ? "2px solid #dc2626" : "2px solid transparent",
+                      color: isActive(item.href) ? "var(--theme-accent-light)" : "rgba(255,255,255,0.7)",
+                      borderLeft: isActive(item.href) ? "2px solid var(--theme-accent)" : "2px solid transparent",
                     }}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -282,7 +280,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                 <Link
                   href="/contact"
                   className="flex items-center justify-center text-white text-[13px] font-semibold py-2.5 rounded-lg transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
-                  style={{ background: "rgba(220,38,38,0.9)", border: "1px solid rgba(220,38,38,0.3)" }}
+                  style={{ background: "rgba(var(--theme-accent-rgb),0.9)", border: "1px solid rgba(var(--theme-accent-rgb),0.3)" }}
                   onClick={() => setMenuOpen(false)}
                 >
                   Offerte Aanvragen
@@ -301,13 +299,13 @@ function NavLink({ href, label, active }: { href: string; label: string; active:
     <Link
       href={href}
       className="relative text-[13px] font-medium px-3 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8"
-      style={{ color: active ? "#f87171" : "rgba(255,255,255,0.55)" }}
+      style={{ color: active ? "var(--theme-accent-light)" : "rgba(255,255,255,0.55)" }}
     >
       {label}
       {active && (
         <motion.span
           className="absolute bottom-0 left-3 right-3 h-[1.5px] rounded-full"
-          style={{ background: "#dc2626" }}
+          style={{ background: "var(--theme-accent)" }}
           layoutId="nav-underline"
           transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
         />
