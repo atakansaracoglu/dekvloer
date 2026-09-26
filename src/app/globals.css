@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+  --theme-accent: #dc2626;
+  --theme-accent-light: #f87171;
+  --theme-accent-rgb: 220, 38, 38;
+}
+
+:root[data-theme="blue"] {
+  --theme-accent: #2563eb;
+  --theme-accent-light: #60a5fa;
+  --theme-accent-rgb: 37, 99, 235;
+}
+
 @theme inline {
   --color-background: #fafafa;
   --color-foreground: #0a0a0a;
@@ -27,7 +39,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent);
+  background: var(--theme-accent);
   color: white;
 }
 
