@@ -75,7 +75,7 @@ function ReviewCard({ name, body }: { name: string; body: string }) {
       <div className="flex items-center gap-3">
         <div
           className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold"
-          style={{ background: "rgba(220,38,38,0.2)", color: "#f87171" }}
+          style={{ background: "rgba(var(--theme-accent-rgb),0.2)", color: "var(--theme-accent-light)" }}
         >
           {name[0]}
         </div>

@@ -19,6 +19,15 @@ const SERVICES = [
   "Anders",
 ];
 
+const EXTRA_OPTIES = [
+  "Randstrook",
+  "Versneller",
+  "Verharder",
+  "Vezel",
+  "Duramit",
+  "Krimpnet",
+];
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -60,9 +69,9 @@ export default function ContactPage() {
             >
               {submitted ? (
                 <div className="text-center py-16">
-                  <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ background: "rgba(220,38,38,0.1)" }}>
+                  <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ background: "rgba(var(--theme-accent-rgb),0.1)" }}>
                     <svg width="32" height="32" viewBox="0 0 16 16" fill="none">
-                      <path d="M5 8l2 2 4-4" stroke="#dc2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M5 8l2 2 4-4" stroke="var(--theme-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <h2 className="text-2xl font-semibold mb-3" style={{ color: "#0a0a0a" }}>Bedankt voor uw aanvraag!</h2>
@@ -99,17 +108,31 @@ export default function ContactPage() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Postcode</label>
-                      <input type="text" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
+                      <input type="text" placeholder="bijv. 1234 AB" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
                     </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Deel / Regio</label>
+                      <input type="text" placeholder="bijv. Noord-Holland" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Adres</label>
+                    <input type="text" placeholder="Straatnaam en huisnummer" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Aantal m²</label>
                       <input type="text" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Dikte (cm)</label>
+                      <input type="text" placeholder="bijv. 5 cm" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Extra opties</label>
                     <div className="grid sm:grid-cols-2 gap-2">
-                      {["Droogtijdversneller", "Verharder", "Vezelversterking", "Duremit", "Krimpnetten", "Vlevopol"].map((opt) => (
+                      {EXTRA_OPTIES.map((opt) => (
                         <label key={opt} className="flex items-center gap-2 text-sm py-1.5" style={{ color: "#374151" }}>
                           <input type="checkbox" className="rounded" />
                           {opt}
@@ -124,7 +147,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     className="w-full py-3.5 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.01] active:scale-[0.99]"
-                    style={{ background: "#dc2626" }}
+                    style={{ background: "var(--theme-accent)" }}
                   >
                     Offerte Aanvragen
                   </button>

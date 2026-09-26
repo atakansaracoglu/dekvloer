@@ -58,7 +58,7 @@ function MarqueeStrip({
             <img src={src} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
             <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/0" />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(220,38,38,0.85)" }}>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(var(--theme-accent-rgb),0.85)" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8" />
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -178,7 +178,7 @@ export default function PhotoShowcase() {
             <div className="max-w-xl">
               <motion.span
                 className="inline-block text-sm font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "#dc2626" }}
+                style={{ color: "var(--theme-accent)" }}
                 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}
               >
                 Ons Werk
@@ -189,7 +189,7 @@ export default function PhotoShowcase() {
                 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}
               >
                 Honderden projecten,{" "}
-                <span style={{ color: "#f87171" }}>één standaard.</span>
+                <span style={{ color: "var(--theme-accent-light)" }}>één standaard.</span>
               </motion.h2>
               <motion.p
                 className="mt-4 text-lg leading-relaxed"
@@ -207,11 +207,11 @@ export default function PhotoShowcase() {
               variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3}
             >
               <div>
-                <div className="text-3xl md:text-4xl font-bold" style={{ color: "#f87171" }}>500+</div>
+                <div className="text-3xl md:text-4xl font-bold" style={{ color: "var(--theme-accent-light)" }}>500+</div>
                 <div className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>Projecten</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold" style={{ color: "#f87171" }}>20+</div>
+                <div className="text-3xl md:text-4xl font-bold" style={{ color: "var(--theme-accent-light)" }}>20+</div>
                 <div className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>Vakmensen</div>
               </div>
             </motion.div>

@@ -84,9 +84,9 @@ export default function ServicePage({
               transition={{ ...spring, delay: 0.1 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-sm font-medium"
               style={{
-                background: "rgba(220,38,38,0.15)",
-                color: "#f87171",
-                border: "1px solid rgba(220,38,38,0.25)",
+                background: "rgba(var(--theme-accent-rgb),0.15)",
+                color: "var(--theme-accent-light)",
+                border: "1px solid rgba(var(--theme-accent-rgb),0.25)",
               }}
             >
               Dekvloer Expert
@@ -118,7 +118,7 @@ export default function ServicePage({
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
-                style={{ background: "#dc2626", boxShadow: "0 8px 30px rgba(220,38,38,0.3)" }}
+                style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
               >
                 Gratis Offerte
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -179,9 +179,9 @@ export default function ServicePage({
                     viewport={{ once: true }}
                     custom={i}
                   >
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: "rgba(220,38,38,0.1)" }}>
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: "rgba(var(--theme-accent-rgb),0.1)" }}>
                       <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-                        <path d="M5 8l2 2 4-4" stroke="#dc2626" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M5 8l2 2 4-4" stroke="var(--theme-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                     <h3 className="text-lg font-semibold mb-2" style={{ color: "#0a0a0a" }}>{f.title}</h3>
@@ -239,7 +239,7 @@ export default function ServicePage({
               viewport={{ once: true }}
               custom={0}
             >
-              <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-[100px]" style={{ background: "#dc2626" }} />
+              <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-[100px]" style={{ background: "var(--theme-accent)" }} />
               <h2
                 className="text-2xl md:text-4xl font-semibold tracking-tight text-white leading-[1.1] max-w-xl mx-auto relative"
                 style={{ letterSpacing: "-0.02em" }}
@@ -253,7 +253,7 @@ export default function ServicePage({
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
-                  style={{ background: "#dc2626", boxShadow: "0 8px 30px rgba(220,38,38,0.3)" }}
+                  style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
                 >
                   Offerte Aanvragen
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
