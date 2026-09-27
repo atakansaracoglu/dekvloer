@@ -61,9 +61,9 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
         <motion.div
           className="mx-auto transition-all"
           style={{
-            maxWidth: "1100px",
-            marginLeft: "max(16px, calc((100vw - 1100px) / 2))",
-            marginRight: "max(16px, calc((100vw - 1100px) / 2))",
+            maxWidth: "1280px",
+            marginLeft: "max(16px, calc((100vw - 1280px) / 2))",
+            marginRight: "max(16px, calc((100vw - 1280px) / 2))",
             borderRadius: scrolled ? "16px" : "20px",
             background: scrolled
               ? "rgba(8,8,8,0.72)"
@@ -115,7 +115,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
             </Link>
 
             {/* Center: Navigation */}
-            <nav className="hidden xl:flex items-center gap-0.5">
+            <nav className="hidden lg:flex items-center gap-0.5 flex-shrink min-w-0">
               <NavLink href="/" label="Home" active={isActive("/")} />
               {NAV_PRIMARY.map((item) => (
                 <NavLink key={item.href} href={item.href} label={item.label} active={isActive(item.href)} />
@@ -128,7 +128,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                 onMouseLeave={() => setMoreOpen(false)}
               >
                 <button
-                  className="flex items-center gap-1 text-[13px] font-medium px-3 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8"
+                  className="flex items-center gap-1 text-[12px] font-medium px-2.5 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8 whitespace-nowrap"
                   style={{ color: NAV_MEER_DIENSTEN.some((i) => isActive(i.href)) ? "var(--theme-accent-light)" : "rgba(255,255,255,0.55)" }}
                 >
                   Meer diensten
@@ -221,7 +221,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
 
               {/* Hamburger */}
               <button
-                className="xl:hidden w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-white/8"
+                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-white/8"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Menu"
               >
@@ -239,7 +239,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[60] xl:hidden"
+            className="fixed inset-0 z-[60] lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -361,7 +361,7 @@ function NavLink({ href, label, active }: { href: string; label: string; active:
   return (
     <Link
       href={href}
-      className="relative text-[13px] font-medium px-3 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8"
+      className="relative text-[12px] font-medium px-2.5 py-1.5 rounded-lg transition-all duration-200 hover:bg-white/8 whitespace-nowrap"
       style={{ color: active ? "var(--theme-accent-light)" : "rgba(255,255,255,0.55)" }}
     >
       {label}
