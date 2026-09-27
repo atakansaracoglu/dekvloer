@@ -8,24 +8,12 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
 
-const SERVICES = [
-  "Zandcement dekvloer",
-  "Anhydrietvloer",
-  "Vloerverwarming",
-  "Egaliseren",
-  "Beton & Fundering",
-  "Schuimbeton",
-  "Heipalen",
+const ONDERWERPEN = [
+  "Vraag over onze diensten",
+  "Offerte aanvragen",
+  "Samenwerking / aannemer",
+  "Klacht of opmerking",
   "Anders",
-];
-
-const EXTRA_OPTIES = [
-  "Randstrook",
-  "Versneller",
-  "Verharder",
-  "Vezel",
-  "Duramit",
-  "Krimpnet",
 ];
 
 export default function ContactPage() {
@@ -44,7 +32,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.2 }}
             >
-              Contact / Offerte Aanvragen
+              Contact
             </motion.h1>
             <motion.p
               className="mt-5 text-lg md:text-xl leading-relaxed max-w-2xl"
@@ -53,7 +41,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...spring, delay: 0.3 }}
             >
-              Vul het formulier in en ontvang binnen 24 uur een vrijblijvende offerte op maat.
+              Neem contact met ons op. Wij reageren binnen 24 uur. Voor een offerte kunt u ook ons offerteformulier gebruiken.
             </motion.p>
           </div>
         </section>
@@ -97,60 +85,31 @@ export default function ContactPage() {
                     <input type="email" required className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Gewenste dienst *</label>
-                    <select required className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }}>
-                      <option value="">Selecteer een dienst</option>
-                      {SERVICES.map((s) => (
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Onderwerp</label>
+                    <select className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }}>
+                      <option value="">Selecteer een onderwerp</option>
+                      {ONDERWERPEN.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
                     </select>
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Postcode</label>
-                      <input type="text" placeholder="bijv. 1234 AB" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Deel / Regio</label>
-                      <input type="text" placeholder="bijv. Noord-Holland" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
-                    </div>
-                  </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Adres</label>
-                    <input type="text" placeholder="Straatnaam en huisnummer" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Aantal m²</label>
-                      <input type="text" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Dikte (cm)</label>
-                      <input type="text" placeholder="bijv. 5 cm" className="w-full px-4 py-3 rounded-xl text-sm" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Extra opties</label>
-                    <div className="grid sm:grid-cols-2 gap-2">
-                      {EXTRA_OPTIES.map((opt) => (
-                        <label key={opt} className="flex items-center gap-2 text-sm py-1.5" style={{ color: "#374151" }}>
-                          <input type="checkbox" className="rounded" />
-                          {opt}
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Omschrijving van uw project</label>
-                    <textarea rows={4} className="w-full px-4 py-3 rounded-xl text-sm resize-none" style={{ border: "1px solid #e5e7eb", background: "#fff" }} />
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: "#374151" }}>Uw bericht *</label>
+                    <textarea rows={5} required className="w-full px-4 py-3 rounded-xl text-sm resize-none" style={{ border: "1px solid #e5e7eb", background: "#fff" }} placeholder="Stel uw vraag of laat een bericht achter..." />
                   </div>
                   <button
                     type="submit"
                     className="w-full py-3.5 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.01] active:scale-[0.99]"
                     style={{ background: "var(--theme-accent)" }}
                   >
-                    Offerte Aanvragen
+                    Bericht Versturen
                   </button>
+                  <p className="text-center text-sm" style={{ color: "#6b7280" }}>
+                    Op zoek naar een offerte?{" "}
+                    <a href="/offerte-aanvragen" className="font-medium underline" style={{ color: "var(--theme-accent)" }}>
+                      Gebruik ons offerteformulier
+                    </a>
+                  </p>
                 </form>
               )}
             </motion.div>

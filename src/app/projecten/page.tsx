@@ -77,7 +77,7 @@ export default function ProjectenPage() {
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
                 <div className="absolute top-4 left-4">
-                  <span className="text-xs font-medium px-3 py-1 rounded-full" style={{ background: "rgba(220,38,38,0.2)", color: "#f87171" }}>
+                  <span className="text-xs font-medium px-3 py-1 rounded-full" style={{ background: "rgba(var(--theme-accent-rgb),0.2)", color: "var(--theme-accent-light)" }}>
                     {project.type}
                   </span>
                 </div>
@@ -105,7 +105,7 @@ export default function ProjectenPage() {
               viewport={{ once: true }}
               custom={0}
             >
-              <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-[100px]" style={{ background: "#dc2626" }} />
+              <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-[100px]" style={{ background: "var(--theme-accent)" }} />
               <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-white leading-[1.1] max-w-xl mx-auto relative" style={{ letterSpacing: "-0.02em" }}>
                 Uw project hier toevoegen?
               </h2>
@@ -114,9 +114,9 @@ export default function ProjectenPage() {
               </p>
               <div className="mt-8 relative">
                 <Link
-                  href="/contact"
+                  href="/offerte-aanvragen"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
-                  style={{ background: "#dc2626", boxShadow: "0 8px 30px rgba(220,38,38,0.3)" }}
+                  style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
                 >
                   Offerte Aanvragen
                 </Link>

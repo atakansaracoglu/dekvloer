@@ -22,16 +22,17 @@ const fadeUp = {
 };
 
 const USPS = [
-  "Sneldrogende dekvloeren",
+  "Specialist in zandcementdekvloeren",
   "Gecertificeerde kwaliteit",
-  "Heel Nederland",
+  "Door heel Nederland",
   "Gratis prijsopgave",
+  "Voor particulieren & aannemers",
 ];
 
 const SERVICES = [
   {
-    title: "Zandcement Dekvloeren",
-    href: "/zandcement",
+    title: "Zandcementdekvloeren",
+    href: "/zandcementdekvloer",
     desc: "De perfecte basis voor elk project. Strak, duurzaam en kaarsrecht — geschikt voor elke eindafwerking.",
     icon: "◆",
     images: ["/photos/werk-01.jpg", "/photos/werk-02.jpg", "/photos/werk-04.jpg"],
@@ -89,20 +90,20 @@ function Hero() {
             style={{ background: "rgba(var(--theme-accent-rgb),0.15)", color: "var(--theme-accent-light)", border: "1px solid rgba(var(--theme-accent-rgb),0.25)" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            Specialist in zandcement dekvloeren
+            DekvloerExpert — Specialist in zandcementdekvloeren
           </motion.div>
 
           <motion.h1 className="text-white font-semibold leading-[1.05] tracking-tight" style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", letterSpacing: "-0.025em" }}>
             <motion.span className="block" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.2 }}>
-              De perfecte basis
+              Zandcementvloer
             </motion.span>
             <motion.span className="block" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.3 }}>
-              voor <span style={{ color: "var(--theme-accent-light)" }}>elk project.</span>
+              laten leggen? <span style={{ color: "var(--theme-accent-light)" }}>Wij staan klaar.</span>
             </motion.span>
           </motion.h1>
 
           <motion.p className="mt-6 text-lg md:text-xl leading-relaxed max-w-xl" style={{ color: "rgba(255,255,255,0.65)" }} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.4 }}>
-            Vakkundige zandcement dekvloeren door heel Nederland. Strak, duurzaam en altijd op maat — voor nieuwbouw, renovatie en utiliteitsbouw.
+            Specialist in zandcementdekvloeren voor particulieren en aannemers. Wij werken door heel Nederland.
           </motion.p>
 
           <motion.div className="mt-8 flex flex-wrap gap-x-6 gap-y-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.5 }}>
@@ -118,10 +119,14 @@ function Hero() {
           </motion.div>
 
           <motion.div className="mt-10 flex flex-wrap gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ ...spring, delay: 0.6 }}>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-lg" style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}>
-              Gratis Offerte
+            <Link href="/offerte-aanvragen" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-lg" style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}>
+              Offerte Aanvragen
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
+            <a href="https://wa.me/31612345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]" style={{ background: "#25D366", color: "#fff" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.553 4.116 1.52 5.852L0 24l6.335-1.652A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.884 0-3.633-.497-5.152-1.366l-.37-.217-3.83.999 1.022-3.727-.24-.38A9.79 9.79 0 012.182 12c0-5.417 4.401-9.818 9.818-9.818S21.818 6.583 21.818 12 17.417 21.818 12 21.818z"/></svg>
+              WhatsApp
+            </a>
             <a href="tel:+31612345678" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]" style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }}>
               Bel Direct
             </a>
@@ -181,7 +186,7 @@ function Services() {
   return (
     <section className="py-24 md:py-32 px-5">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading eyebrow="Onze Hoofddienst" title="Zandcement dekvloeren van topkwaliteit" subtitle="Strak, duurzaam en kaarsrecht — de perfecte basis voor elke eindafwerking." />
+        <SectionHeading eyebrow="Onze Hoofddienst" title="Zandcementdekvloeren van topkwaliteit" subtitle="Strak, duurzaam en kaarsrecht — de perfecte basis voor elke eindafwerking." />
         <div className="max-w-lg mx-auto">
           {SERVICES.map((service, i) => (
             <motion.div
@@ -233,7 +238,7 @@ function CraftHero() {
               className="inline-block text-sm font-semibold uppercase tracking-widest mb-6"
               style={{ color: "var(--theme-accent)" }}
             >
-              Waarom Dekvloer?
+              Waarom DekvloerExpert?
             </span>
             <h2
               className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-6"
@@ -316,11 +321,11 @@ function CraftHero() {
             </div>
 
             <Link
-              href="/over-ons"
+              href="/zandcementdekvloer"
               className="inline-flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
               style={{ color: "var(--theme-accent)" }}
             >
-              Meer over ons team
+              Meer over zandcementdekvloeren
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -433,12 +438,15 @@ function CTA() {
           <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.1] max-w-xl mx-auto relative" style={{ letterSpacing: "-0.02em" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}>Klaar voor een strakke dekvloer?</motion.h2>
           <motion.p className="mt-5 text-lg max-w-md mx-auto relative" style={{ color: "rgba(255,255,255,0.55)" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2}>Vraag vandaag nog een vrijblijvende offerte aan. Wij reageren binnen 24 uur.</motion.p>
           <motion.div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 relative" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={3}>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]" style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}>
+            <Link href="/offerte-aanvragen" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]" style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}>
               Offerte Aanvragen
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
+            <a href="https://wa.me/31612345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]" style={{ background: "#25D366", color: "#fff" }}>
+              WhatsApp
+            </a>
             <a href="tel:+31612345678" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]" style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }}>
-              +31 6 1234 5678
+              Bel Direct
             </a>
           </motion.div>
         </motion.div>

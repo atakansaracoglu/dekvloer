@@ -89,7 +89,7 @@ export default function ServicePage({
                 border: "1px solid rgba(var(--theme-accent-rgb),0.25)",
               }}
             >
-              Dekvloer Expert
+              DekvloerExpert
             </motion.div>
             <motion.h1
               className="text-white font-semibold leading-[1.08] tracking-tight"
@@ -116,7 +116,7 @@ export default function ServicePage({
               transition={{ ...spring, delay: 0.4 }}
             >
               <Link
-                href="/contact"
+                href="/offerte-aanvragen"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
                 style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
               >
@@ -251,7 +251,7 @@ export default function ServicePage({
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 relative">
                 <Link
-                  href="/contact"
+                  href="/offerte-aanvragen"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
                   style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
                 >

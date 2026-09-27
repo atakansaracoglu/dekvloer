@@ -9,27 +9,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dekvloer Expert | Specialist in Zandcement Dekvloeren",
+  title: "DekvloerExpert | Specialist in Zandcementdekvloeren",
   description:
-    "Uw specialist in zandcement dekvloeren door heel Nederland. Sneldroog opties, verharders, vezelversterking en meer. Vraag direct een vrijblijvende offerte aan.",
+    "DekvloerExpert is uw specialist in zandcementdekvloeren door heel Nederland. Voor particulieren en aannemers. Vraag direct een vrijblijvende offerte aan.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
   },
+  openGraph: {
+    title: "DekvloerExpert | Specialist in Zandcementdekvloeren",
+    description: "Zandcementdekvloer laten leggen? DekvloerExpert staat voor je klaar. Door heel Nederland.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="nl" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("theme-color");if(t&&["red","blue","emerald","purple","orange","pink","teal","amber","indigo","rose"].indexOf(t)>-1)document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
-          }}
-        />
-      </head>
+    <html lang="nl" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
