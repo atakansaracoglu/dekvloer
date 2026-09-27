@@ -29,15 +29,6 @@ const USPS = [
   "Voor particulieren & aannemers",
 ];
 
-const SERVICES = [
-  {
-    title: "Zandcementdekvloeren",
-    href: "/zandcementdekvloer",
-    desc: "De perfecte basis voor elk project. Strak, duurzaam en kaarsrecht — geschikt voor elke eindafwerking.",
-    icon: "◆",
-    images: ["/photos/werk-01.jpg", "/photos/werk-02.jpg", "/photos/werk-04.jpg"],
-  },
-];
 
 const EXTRA_OPTIONS = [
   { name: "Randstrook", desc: "Voorkomt scheuren langs de randen en zorgt voor een nette afwerking" },
@@ -156,64 +147,103 @@ function SectionHeading({ eyebrow, title, subtitle }: { eyebrow: string; title: 
   );
 }
 
-function ServiceCardGallery({ images, offset = 0 }: { images: string[]; offset?: number }) {
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % images.length), 5000 + offset * 800);
-    return () => clearInterval(t);
-  }, [images.length, offset]);
-
-  return (
-    <div className="relative w-full h-40 rounded-xl overflow-hidden mb-5">
-      <AnimatePresence mode="popLayout">
-        <motion.img
-          key={images[idx]}
-          src={images[idx]}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.0 }}
-          animate={{ opacity: 1, scale: 1.15 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1.2, ease: "easeInOut" }, scale: { duration: 6, ease: "linear" } }}
-        />
-      </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-    </div>
-  );
-}
 
 function Services() {
   return (
-    <section className="py-24 md:py-32 px-5">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeading eyebrow="Onze Hoofddienst" title="Zandcementdekvloeren van topkwaliteit" subtitle="Strak, duurzaam en kaarsrecht — de perfecte basis voor elke eindafwerking." />
-        <div className="max-w-lg mx-auto">
-          {SERVICES.map((service, i) => (
-            <motion.div
-              key={service.title}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-30px" }}
-              custom={i}
-              whileHover={{ y: -4, transition: spring }}
+    <section className="relative py-28 md:py-36 px-5 overflow-hidden" style={{ background: "#111111" }}>
+      <div className="absolute inset-0">
+        <img
+          src="/photos/werk-01.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.8) 50%, rgba(17,17,17,0.5) 100%)" }} />
+      </div>
+      <div className="relative max-w-7xl mx-auto">
+        <div className="max-w-2xl">
+          <motion.span
+            className="inline-block text-sm font-semibold uppercase tracking-widest mb-5"
+            style={{ color: "var(--theme-accent-light)" }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0}
+          >
+            Onze Hoofddienst
+          </motion.span>
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white mb-6"
+            style={{ letterSpacing: "-0.02em" }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+          >
+            Zandcementdekvloeren van{" "}
+            <span style={{ color: "var(--theme-accent-light)" }}>topkwaliteit</span>
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl leading-relaxed mb-8"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+          >
+            Strak, duurzaam en kaarsrecht — de perfecte basis voor elke eindafwerking.
+            Van kleine renovatie tot grootschalig nieuwbouwproject, voor particulieren
+            en aannemers door heel Nederland.
+          </motion.p>
+          <motion.div
+            className="grid grid-cols-2 gap-4 mb-10"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={3}
+          >
+            {[
+              "Geschikt voor vloerverwarming",
+              "Legklaar na droging",
+              "Diverse diktes beschikbaar",
+              "Met of zonder toevoegingen",
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-2.5 text-sm" style={{ color: "rgba(255,255,255,0.8)" }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+                  <circle cx="8" cy="8" r="8" fill="var(--theme-accent)" />
+                  <path d="M5 8l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {item}
+              </div>
+            ))}
+          </motion.div>
+          <motion.div
+            className="flex flex-wrap gap-4"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={4}
+          >
+            <Link
+              href="/zandcementdekvloer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
+              style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
             >
-              <Link href={service.href} className="group block relative rounded-2xl overflow-hidden h-full transition-colors duration-300" style={{ background: "#111111" }}>
-                <div className="px-8 pt-6">
-                  <ServiceCardGallery images={service.images} offset={i} />
-                </div>
-                <div className="px-8 pb-8">
-                  <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ background: "var(--theme-accent)", color: "#fff" }}>Hoofddienst</span>
-                  <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{service.desc}</p>
-                  <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all" style={{ color: "var(--theme-accent-light)" }}>
-                    Meer info
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+              Meer informatie
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </Link>
+            <Link
+              href="/offerte-aanvragen"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
+              style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }}
+            >
+              Offerte aanvragen
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
