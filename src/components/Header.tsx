@@ -206,6 +206,19 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
                 Offerte aanvragen
               </Link>
 
+              {/* Mobile offerte button */}
+              <Link
+                href="/offerte-aanvragen"
+                className="sm:hidden inline-flex items-center text-[11px] font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 hover:brightness-110 active:scale-[0.97]"
+                style={{
+                  background: "var(--theme-accent)",
+                  color: "#fff",
+                  boxShadow: "0 2px 8px rgba(var(--theme-accent-rgb),0.3)",
+                }}
+              >
+                Offerte
+              </Link>
+
               {/* Hamburger */}
               <button
                 className="xl:hidden w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-white/8"
