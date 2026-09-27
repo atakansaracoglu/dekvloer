@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoShowcase from "@/components/PhotoShowcase";
+import ConcreteEffect from "@/components/ConcreteEffect";
 
 
 const spring = { type: "spring" as const, bounce: 0, duration: 0.5 };
@@ -443,8 +444,9 @@ function CraftHero() {
 
 function ExtraOptions() {
   return (
-    <section className="py-24 md:py-32 px-5" style={{ background: "#111111" }}>
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 md:py-32 px-5 relative" style={{ background: "#111111" }}>
+      <ConcreteEffect />
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.span className="inline-block text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--theme-accent)" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>Maatwerk Opties</motion.span>
           <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white" style={{ letterSpacing: "-0.02em" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}>Extra opties voor uw dekvloer</motion.h2>
@@ -500,6 +502,7 @@ function CTA() {
     <section className="py-24 md:py-32 px-5">
       <div className="max-w-7xl mx-auto">
         <motion.div className="relative rounded-3xl overflow-hidden px-8 py-16 md:px-16 md:py-24 text-center" style={{ background: "linear-gradient(135deg, #111111 0%, #1a1a1a 100%)" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
+          <ConcreteEffect />
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-20 blur-[100px] pointer-events-none" style={{ background: "var(--theme-accent)" }} />
           <motion.h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.1] max-w-xl mx-auto relative" style={{ letterSpacing: "-0.02em" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}>Klaar voor een strakke dekvloer?</motion.h2>
           <motion.p className="mt-5 text-lg max-w-md mx-auto relative" style={{ color: "rgba(255,255,255,0.55)" }} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2}>Vraag vandaag nog een vrijblijvende offerte aan. Wij reageren binnen 24 uur.</motion.p>

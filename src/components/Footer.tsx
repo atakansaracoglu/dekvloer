@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { LogoIcon } from "./Logo";
+import ConcreteEffect from "./ConcreteEffect";
 
 export default function Footer() {
   return (
-    <footer className="py-16 px-5" style={{ background: "#0a0a0a" }}>
-      <div className="max-w-7xl mx-auto">
+    <footer className="py-16 px-5 relative" style={{ background: "#0a0a0a" }}>
+      <ConcreteEffect />
+      <div className="max-w-7xl mx-auto relative">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
             <div className="mb-4">
