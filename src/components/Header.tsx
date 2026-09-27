@@ -95,15 +95,15 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
             <Link href="/" className="flex-shrink-0 relative flex items-center gap-2">
               <motion.div
                 animate={{
-                  width: scrolled ? 24 : 0,
+                  width: scrolled ? 28 : 0,
                   opacity: scrolled ? 1 : 0,
-                  marginRight: scrolled ? 4 : 0,
+                  marginRight: scrolled ? 6 : 0,
                 }}
                 initial={{ width: 0, opacity: 0, marginRight: 0 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                 className="overflow-hidden flex-shrink-0"
               >
-                <LogoIcon className="h-6 w-auto" />
+                <LogoIcon className="h-7 w-auto" />
               </motion.div>
               <LogoWide
                 className="w-auto transition-all"
