@@ -95,7 +95,7 @@ export default function Header({ forceDark = false }: { forceDark?: boolean }) {
             <Link href="/" className="flex-shrink-0 relative flex items-center gap-2">
               <motion.div
                 animate={{
-                  width: scrolled ? 28 : 0,
+                  width: scrolled ? 40 : 0,
                   opacity: scrolled ? 1 : 0,
                   marginRight: scrolled ? 6 : 0,
                 }}

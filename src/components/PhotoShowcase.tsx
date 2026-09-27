@@ -175,7 +175,7 @@ export default function PhotoShowcase() {
     <>
       <section className="py-24 md:py-32 overflow-hidden relative" style={{ background: "#111111" }}>
         <ConcreteEffect />
-        <div className="max-w-7xl mx-auto px-5 mb-14">
+        <div className="max-w-7xl mx-auto px-5 mb-14 relative">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div className="max-w-xl">
               <motion.span
@@ -220,7 +220,7 @@ export default function PhotoShowcase() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 relative">
           <MarqueeStrip
             photos={firstRow}
             onPhotoClick={(i) => openLightbox(i)}
