@@ -16,10 +16,14 @@ export const metadata: Metadata = {
     "DekvloerExpert is uw specialist in zandcementdekvloeren door heel Nederland. Voor particulieren en aannemers. Vraag direct een vrijblijvende offerte aan.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "48x48" },
       { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "DekvloerExpert | Specialist in Zandcementdekvloeren",
     description: "Zandcementdekvloer laten leggen? DekvloerExpert staat voor je klaar. Door heel Nederland.",
