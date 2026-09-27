@@ -150,99 +150,135 @@ function SectionHeading({ eyebrow, title, subtitle }: { eyebrow: string; title: 
 
 function Services() {
   return (
-    <section className="relative py-28 md:py-36 px-5 overflow-hidden" style={{ background: "#111111" }}>
-      <div className="absolute inset-0">
-        <img
-          src="/photos/werk-01.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.8) 50%, rgba(17,17,17,0.5) 100%)" }} />
-      </div>
-      <div className="relative max-w-7xl mx-auto">
-        <div className="max-w-2xl">
-          <motion.span
-            className="inline-block text-sm font-semibold uppercase tracking-widest mb-5"
-            style={{ color: "var(--theme-accent-light)" }}
+    <section className="py-24 md:py-32 px-5 overflow-hidden" style={{ background: "#ffffff" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             custom={0}
           >
-            Onze Hoofddienst
-          </motion.span>
-          <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-white mb-6"
-            style={{ letterSpacing: "-0.02em" }}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-          >
-            Zandcementdekvloeren van{" "}
-            <span style={{ color: "var(--theme-accent-light)" }}>topkwaliteit</span>
-          </motion.h2>
-          <motion.p
-            className="text-lg md:text-xl leading-relaxed mb-8"
-            style={{ color: "rgba(255,255,255,0.6)" }}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-          >
-            Strak, duurzaam en kaarsrecht — de perfecte basis voor elke eindafwerking.
-            Van kleine renovatie tot grootschalig nieuwbouwproject, voor particulieren
-            en aannemers door heel Nederland.
-          </motion.p>
-          <motion.div
-            className="grid grid-cols-2 gap-4 mb-10"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={3}
-          >
-            {[
-              "Geschikt voor vloerverwarming",
-              "Legklaar na droging",
-              "Diverse diktes beschikbaar",
-              "Met of zonder toevoegingen",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2.5 text-sm" style={{ color: "rgba(255,255,255,0.8)" }}>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
-                  <circle cx="8" cy="8" r="8" fill="var(--theme-accent)" />
-                  <path d="M5 8l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                {item}
+            <span
+              className="inline-block text-sm font-semibold uppercase tracking-widest mb-6"
+              style={{ color: "var(--theme-accent)" }}
+            >
+              Onze Hoofddienst
+            </span>
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] mb-6"
+              style={{ color: "#0a0a0a", letterSpacing: "-0.02em" }}
+            >
+              Zandcementdekvloeren van{" "}
+              <span style={{ color: "var(--theme-accent)" }}>topkwaliteit</span>
+            </h2>
+            <p className="text-lg leading-relaxed mb-8" style={{ color: "#6b7280" }}>
+              Strak, duurzaam en kaarsrecht — de perfecte basis voor elke
+              eindafwerking. Van kleine renovatie tot grootschalig
+              nieuwbouwproject, voor particulieren en aannemers door heel
+              Nederland.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-10">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(var(--theme-accent-rgb),0.1)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Diverse diktes</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Van 30mm tot 100mm, afgestemd op uw project</p>
+                </div>
               </div>
-            ))}
-          </motion.div>
-          <motion.div
-            className="flex flex-wrap gap-4"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={4}
-          >
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(var(--theme-accent-rgb),0.1)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Snel legklaar</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Met versneller nog sneller droog</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(var(--theme-accent-rgb),0.1)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Vloerverwarming</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Ideaal in combinatie met vloerverwarming</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(var(--theme-accent-rgb),0.1)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                    <path d="M16 7V5a4 4 0 0 0-8 0v2" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-sm" style={{ color: "#0a0a0a" }}>Maatwerk opties</h4>
+                  <p className="text-xs mt-1" style={{ color: "#6b7280" }}>Vezel, verharder, krimpnet en meer</p>
+                </div>
+              </div>
+            </div>
+
             <Link
               href="/zandcementdekvloer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
-              style={{ background: "var(--theme-accent)", boxShadow: "0 8px 30px rgba(var(--theme-accent-rgb),0.3)" }}
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-all hover:gap-3"
+              style={{ color: "var(--theme-accent)" }}
             >
-              Meer informatie
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              Meer over zandcementdekvloeren
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
-            <Link
-              href="/offerte-aanvragen"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
-              style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }}
-            >
-              Offerte aanvragen
-            </Link>
+          </motion.div>
+
+          <motion.div
+            className="relative"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            custom={2}
+          >
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+              <img
+                src="/photos/werk-01.jpg"
+                alt="Zandcementdekvloer storten"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%)" }} />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: "var(--theme-accent)" }}>
+                    <span className="text-white font-bold text-lg">NL</span>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Door heel Nederland</p>
+                    <p className="text-white/60 text-xs">Wij komen naar u toe</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="absolute -bottom-4 -left-4 w-32 h-32 rounded-2xl -z-10"
+              style={{ background: "rgba(var(--theme-accent-rgb),0.08)" }}
+            />
+            <div
+              className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl -z-10"
+              style={{ background: "rgba(var(--theme-accent-rgb),0.05)" }}
+            />
           </motion.div>
         </div>
       </div>
